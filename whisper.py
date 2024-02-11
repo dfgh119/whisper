@@ -1,16 +1,25 @@
 # prompt: install whisper ai model
-
 # !pip install git+https://github.com/openai/whisper.git
 
 import whisper
 import gc
 import torch
+import tkinter as tk
+from tkinter import filedialog
 
 gc.collect()
 torch.cuda.empty_cache()
 model = whisper.load_model("medium")
+
+
+root = tk.Tk()
+root.withdraw()
+
+file_path = filedialog.askopenfilename()
+file_name = file_path.split("/")[-1]
+
 file_name = '240207_1359_10449'
-result = model.transcribe(f"/content/drive/MyDrive/voice_record/{file_name}.mp3")
+result = model.transcribe("/content/drive/MyDrive/voice_record/file_name")
 print(result["text"])
 
 def save_text_to_file(text, filepath):
