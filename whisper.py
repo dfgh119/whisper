@@ -1,6 +1,6 @@
 # prompt: install whisper ai model
 
-!pip install git+https://github.com/openai/whisper.git
+# !pip install git+https://github.com/openai/whisper.git
 
 import whisper
 import gc
